@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('register')->group(function(){
+    Route::name('register.')->group(function(){
+        Route::get('/register', 'RegisterController@create')->name("create");
+        Route::post('/register', 'RegisterController@store')->name("handle_register");
+    });
+});
+
+
